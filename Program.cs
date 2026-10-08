@@ -122,22 +122,49 @@
 // Console.WriteLine($"Число {number} чётное: {isEven}");
 
 //ЗАДАНИЕ 2
+// 
+// Console.WriteLine();
+// Console.WriteLine("Инкремент в выражении");
+
+// // Случай 1: постфикс в отдельной строке
+// int a = 5;
+// int b = a++;
+// // a++ сначала отдаёт старое значение в b, потом увеличивает a
+// Console.WriteLine($"a = {a}, b = {b}"); // a = 6, b = 5
+
+// // Случай 2: префикс в отдельной строке
+// int c = 5;
+// int d = ++c;
+// // ++c сначала увеличивает c, потом отдаёт новое значение d
+// Console.WriteLine($"c = {c}, d = {d}"); // c = 6, d = 6
+
+// // Случай 3: постфикс прямо внутри вывода
+// int e = 10;
+// Console.WriteLine($"e++ выводит: {e++}"); 
+// Console.WriteLine($"После этого e = {e}");
+
+//ЗАДАНИЕ 3
 Console.WriteLine();
-Console.WriteLine("Инкремент в выражении");
+Console.WriteLine("Калькулятор скидки");
 
-// Случай 1: постфикс в отдельной строке
-int a = 5;
-int b = a++;
-// a++ сначала отдаёт старое значение в b, потом увеличивает a
-Console.WriteLine($"a = {a}, b = {b}"); // a = 6, b = 5
+Console.Write("Введите сумму покупки: ");
+double total = double.Parse(Console.ReadLine());
 
-// Случай 2: префикс в отдельной строке
-int c = 5;
-int d = ++c;
-// ++c сначала увеличивает c, потом отдаёт новое значение d
-Console.WriteLine($"c = {c}, d = {d}"); // c = 6, d = 6
+Console.Write("Есть карта постоянного клиента? (1 - да, 0 - нет): ");
+int cardInput = int.Parse(Console.ReadLine());
+bool hasCard = (cardInput == 1);
 
-// Случай 3: постфикс прямо внутри вывода
-int e = 10;
-Console.WriteLine($"e++ выводит: {e++}"); 
-Console.WriteLine($"После этого e = {e}");
+Console.Write("Введите количество товаров в чеке: ");
+int itemsCount = int.Parse(Console.ReadLine());
+
+bool condition1 = total >= 3000 && itemsCount >= 3;
+
+bool condition2 = hasCard;
+
+bool eligibleForDiscount = condition1 || condition2;
+
+Console.WriteLine();
+Console.WriteLine("Результат");
+Console.WriteLine($"Сумма >= 3000 и товаров >= 3: {condition1}");
+Console.WriteLine($"Есть карта постоянного клиента: {condition2}");
+Console.WriteLine($"Скидка положена: {eligibleForDiscount}");
